@@ -1,0 +1,17 @@
+import express from 'express';
+import connectDB from './src/config/db.js';
+import productRoutes from './src/routes/productRoutes.js';
+
+const app = express();
+
+app.use(express.json());
+
+connectDB();
+
+app.use('/',productRoutes);
+
+const PORT = 3000;
+
+app.listen(PORT,() =>{
+    console.log(`Server running on port ${PORT}`);
+});
